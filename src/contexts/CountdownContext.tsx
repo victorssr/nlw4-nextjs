@@ -19,9 +19,11 @@ interface CountdownContextData {
 export const CountdownContext = createContext({} as CountdownContextData);
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
+    const cicleTime = 0.05 * 60;
+
     const { startNewChallenge } = useContext(ChallengesContext);
 
-    const [time, setTime] = useState(0.05 * 60);
+    const [time, setTime] = useState(cicleTime);
     const [isActive, setIsActive] = useState(false);
     const [hasFinished, setHasFinished] = useState(false);
 
@@ -35,7 +37,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     function resetCountdown() {
         clearTimeout(countdownTimeout);
         setIsActive(false);
-        setTime(0.05 * 60);
+        setTime(cicleTime);
         setHasFinished(false);
     }
 
