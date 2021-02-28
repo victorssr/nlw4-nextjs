@@ -19,7 +19,7 @@ interface CountdownContextData {
 export const CountdownContext = createContext({} as CountdownContextData);
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
-    const cicleTime = 0.05 * 60;
+    const cicleTime = 25 * 60;
 
     const { startNewChallenge } = useContext(ChallengesContext);
 
